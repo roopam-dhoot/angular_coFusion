@@ -1,0 +1,73 @@
+<div class="container"
+     fxLayout="row"
+     fxLayout.sm="column"
+     fxLayout.xs="column"
+     fxLayoutAlign.gt-md="space-around center"
+     fxLayoutGap="10px">
+
+<mat-card *ngIf="dish" fxFlex [@expand]>
+  <mat-card-header >
+    <div mat-card-avatar></div>
+    <mat-card-title>
+      <h3>{{dish.name | uppercase}}</h3>
+    </mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="{{BaseURL + dish.image}}" alt={{dish.name}}>
+  <mat-card-content>
+    <p>{{dish.description}}
+    </p>
+  </mat-card-content>
+  <div [hidden]="dish || dishErr">
+<mat-spinner></mat-spinner><h4>Lodding please wait</h4>
+</div>
+<div fxflex *ngIf="dishErr"> 
+<h2>Error</h2>
+<h4>{{dishErr}}</h4>
+</div>
+</mat-card>
+
+<mat-card *ngIf="promotion" fxFlex [@expand]>
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title>
+      <h3>{{promotion.name | uppercase}}</h3>
+    </mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="{{BaseURL + promotion.image}}" alt={{promotion.name}}>
+  <mat-card-content>
+    <p>{{promotion.description}}
+    </p>
+  </mat-card-content>
+   <div [hidden]="promotion || promoErr">
+   <mat-spinner></mat-spinner><h4>Lodding please wait</h4>
+</div>
+<div fxflex *ngIf="promoErr"> 
+<h2>Error</h2>
+<h4>{{promoErr}}</h4>
+</div>
+</mat-card>
+
+<mat-card *ngIf="Leader.featured" fxFlex [@expand]>
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title>
+      <h3>{{Leader.name | uppercase}}</h3>
+    </mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="{{BaseURL + Leader.image}}" alt={{Leader.name}}>
+  
+  <mat-card-content>
+  <p>{{Leader.designation}}</p>
+    <p>{{Leader.description}}
+    </p>
+  </mat-card-content>
+   <div [hidden]="Leader.featured || leadErr">
+   <mat-spinner></mat-spinner><h4>Lodding please wait</h4>
+</div>
+<div fxflex *ngIf="leadErr"> 
+<h2>Error</h2>
+<h4>{{leadErr}}</h4>
+</div>
+</mat-card>
+
+</div>
